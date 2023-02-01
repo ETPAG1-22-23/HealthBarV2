@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class degatboite : MonoBehaviour
 {
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +19,14 @@ public class degatboite : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.name == "Player")
+       if (collision.transform.name == "Player")
         {
+           
             PlayerHealth playerHealth = collision.transform.GetComponent<PlayerHealth>();
-            playerHealth.TakeDamage(20);
+            playerHealth.TakeDamage(5);
+            
 
         }
-        Debug.Log("cbc");
+        
     }
 }
