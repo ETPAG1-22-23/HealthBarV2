@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
 
     public BarreDeVie healthBar;
 
+    [SerializeField] GameObject hitboxDMG;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,10 +49,13 @@ public class PlayerHealth : MonoBehaviour
     {
         while (isInvincible)
         {
+            hitboxDMG.SetActive(false);
             graphics.color = new Color(1f, 1f, 1f, 0f);
             yield return new WaitForSeconds(invincibilityFlashDelay);
             graphics.color = new Color(1f, 1f, 1f, 1f);
             yield return new WaitForSeconds(invincibilityFlashDelay);
+
+            hitboxDMG.SetActive(true);
         }
         Debug.Log("Coroutine1");
     }
